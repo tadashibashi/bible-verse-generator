@@ -1,0 +1,127 @@
+user-select(n)
+    -webkit-user-select n
+    -ms-user-select n
+    -moz-user-select n
+    user-select n
+
+*
+    box-sizing: border-box
+
+$fade-time = 1s
+
+html, body
+    margin: 0
+    padding: 0
+    font-family: serif
+
+#verses-app
+    width: 100vw
+    height: 100vh
+
+    transition: background-color $fade-time * 2
+    overflow: hidden
+    padding: 10%
+
+#quote-box
+    width: 50%
+    margin: auto
+    overflow: hidden
+    word-wrap: normal
+
+    border: transparent
+    border-radius: 10px
+
+    background-color: white
+
+    display: flex
+    flex-wrap: wrap
+
+    padding: .5rem 2rem
+
+.quote
+    position: relative
+    overflow: hidden
+    width: 100%
+    display: block
+    transition: color $fade-time * 2
+
+    .text::before, .text::after
+        color: rgb(220, 220, 220)
+    .text::before
+        content: '" '
+    .text::after
+        content: ' "'
+    .author
+        text-align: right
+        line-height: 1.5rem
+        &::before
+            content: "– "
+    .version
+        font-size: .7rem
+        display: block
+
+
+.fade-in
+    opacity: 0
+    animation-name: fadein
+    animation-duration: $fade-time
+    animation-delay: 0
+    animation-iteration-count: 1
+    animation-fill-mode: forwards;
+
+
+.fade-out
+    opacity: 1
+
+    animation-name: fadeout 
+    animation-duration: $fade-time
+    animation-delay: 0
+    animation-iteration-count: 1
+    animation-fill-mode: forwards;
+
+.buttons
+    width: 100%
+    .button
+        border-radius: 4px
+
+        cursor: pointer
+        width: auto
+        display: inline
+        padding: .5rem
+        margin: .1rem
+
+        background-color: rgb(54, 54, 54)
+        color: white
+        transition: background-color, $fade-time * 2, color, $fade-time * 2
+
+.icon
+    transition: color $fade-time * 2
+
+.share-button
+    float: left !important
+    background-color: transparent !important
+    border 1px rgb(209, 209, 209) solid !important
+    border-radius: 50% !important
+
+@keyframes fadein
+    from
+        opacity: 0
+    to
+        opacity: 1
+
+@keyframes fadeout
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+#new-quote
+    float: right
+    
+
+
+#tweet-quote
+    height: 100%
+    width: 100%
+    display: block
+    margin: 0
